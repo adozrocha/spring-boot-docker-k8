@@ -12,6 +12,6 @@ import lombok.Setter;
 public class CategoryDTO {
 
 	private Long id;
-	private String nome;
+	private String name;
 		
 }

@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import br.com.java.back.end.dto.ErrorDTO;
-import br.com.java.back.end.exception.ProductNotFoundException;
-import br.com.java.back.end.exception.CategoryNotFoundException;
+import br.com.core.dto.ErrorDTO;
+import br.com.core.exception.CategoryNotFoundException;
+import br.com.core.exception.ProductNotFoundException;
 
 
 @ControllerAdvice(basePackages = "br.com.java.back.end.controller")

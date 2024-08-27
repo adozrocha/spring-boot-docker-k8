@@ -9,12 +9,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import br.com.core.dto.CategoryDTO;
+import br.com.core.dto.ProductDTO;
+import br.com.core.exception.CategoryNotFoundException;
+import br.com.core.exception.ProductNotFoundException;
 import br.com.java.back.end.dto.CategoryConvertDTO;
-import br.com.java.back.end.dto.CategoryDTO;
 import br.com.java.back.end.dto.ProductConvertDTO;
-import br.com.java.back.end.dto.ProductDTO;
-import br.com.java.back.end.exception.CategoryNotFoundException;
-import br.com.java.back.end.exception.ProductNotFoundException;
 import br.com.java.back.end.model.Category;
 import br.com.java.back.end.model.Product;
 import br.com.java.back.end.repository.CategoryRepository;
@@ -63,7 +63,7 @@ public class ProductService {
 	}
 	
 	public ProductDTO save(ProductDTO productDTO) throws Exception {
-		Boolean existsCategory = categoryRepository.existsById(productDTO.category().id());
+		Boolean existsCategory = categoryRepository.existsById(productDTO.getCategory().getId());
 		if (!existsCategory) {
 			throw new CategoryNotFoundException();
 		}				
@@ -86,13 +86,13 @@ public class ProductService {
 	}
 
 	public ProductDTO editProduct(long id, ProductDTO dto) {
-		Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+		Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found."));
 
-		if (dto.nome() != null || !dto.nome().isEmpty()) {
-			product.setNome(dto.nome());
+		if (dto.getName() != null || !dto.getName().isEmpty()) {
+			product.setName(dto.getName());
 		}
-		if (dto.preco() != null) {
-			product.setPreco(dto.preco());
+		if (dto.getPrice() != null) {
+			product.setPrice(dto.getPrice());
 		}
 		return ProductConvertDTO.convert(productRepository.save(product));
 	}

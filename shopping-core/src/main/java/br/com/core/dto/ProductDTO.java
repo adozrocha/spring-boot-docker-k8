@@ -17,9 +17,9 @@ public class ProductDTO {
     @NotBlank
 	private String productIdentifier;
     @NotBlank
-	private String nome;
+	private String name;
     @NotNull
-    private Float preco;
+    private Float price;
     @NotNull
 	private CategoryDTO category;
 	
