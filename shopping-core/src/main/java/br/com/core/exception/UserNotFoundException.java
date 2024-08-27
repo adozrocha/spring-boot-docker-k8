@@ -1,4 +1,4 @@
-package br.com.java.back.end.exception;
+package br.com.core.exception;
 
 public class UserNotFoundException extends RuntimeException {
 

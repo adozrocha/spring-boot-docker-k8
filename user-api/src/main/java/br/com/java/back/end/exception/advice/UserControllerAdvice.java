@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import br.com.java.back.end.dto.ErrorDTO;
-import br.com.java.back.end.exception.UserNotFoundException;
+import br.com.core.dto.ErrorDTO;
+import br.com.core.exception.UserNotFoundException;
 
 @ControllerAdvice(basePackages = "br.com.java.back.end.controller")
 public class UserControllerAdvice {

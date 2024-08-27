@@ -51,6 +51,11 @@
 		    <version>1.18.32</version>
 		    <scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>br.com.core</groupId>
+			<artifactId>shopping-client</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

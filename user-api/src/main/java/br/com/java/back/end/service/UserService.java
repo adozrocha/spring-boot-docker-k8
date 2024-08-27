@@ -1,6 +1,6 @@
 package br.com.java.back.end.service;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -10,9 +10,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import br.com.java.back.end.dto.UserDTO;
-import br.com.java.back.end.dto.UserDTOConverter;
-import br.com.java.back.end.exception.UserNotFoundException;
+import br.com.core.dto.UserDTO;
+import br.com.core.exception.UserNotFoundException;
+import br.com.java.back.end.converter.UserDTOConverter;
 import br.com.java.back.end.model.User;
 import br.com.java.back.end.repository.UserRepository;
 
@@ -45,7 +45,7 @@ public class UserService {
 	public UserDTO save(UserDTO userDTO) {
 		User user = User.convert(userDTO);
 		user.setKey(UUID.randomUUID().toString());
-		user.setDataCadastro(new Date());
+		user.setDataCadastro(LocalDateTime.now());
 		userRepository.save(user);
 		return UserDTOConverter.convert(user);
 	}
@@ -70,14 +70,14 @@ public class UserService {
 	
 	public UserDTO editUser(Long userId, UserDTO userDTO) {
 		User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException());
-		if (userDTO.email() != null && !user.getEmail().equals(userDTO.email())) {
-			user.setEmail(userDTO.email());
+		if (userDTO.getEmail() != null && !user.getEmail().equals(userDTO.getEmail())) {
+			user.setEmail(userDTO.getEmail());
 		}
-		if (userDTO.telefone() != null && !user.getTelefone().equals(userDTO.telefone())) {
-			user.setTelefone(userDTO.telefone());
+		if (userDTO.getTelefone() != null && !user.getTelefone().equals(userDTO.getTelefone())) {
+			user.setTelefone(userDTO.getTelefone());
 		}
-		if (userDTO.endereco() != null && !user.getEndereco().equals(userDTO.endereco())) {
-			user.setEndereco(userDTO.endereco());
+		if (userDTO.getEndereco() != null && !user.getEndereco().equals(userDTO.getEndereco())) {
+			user.setEndereco(userDTO.getEndereco());
 		}
 
 		user = userRepository.save(user);

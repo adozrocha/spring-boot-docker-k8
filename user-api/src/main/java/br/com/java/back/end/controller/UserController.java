@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.java.back.end.dto.UserDTO;
-import br.com.java.back.end.exception.UserNotFoundException;
+import br.com.core.dto.UserDTO;
+import br.com.core.exception.UserNotFoundException;
 import br.com.java.back.end.service.UserService;
 
 @RestController

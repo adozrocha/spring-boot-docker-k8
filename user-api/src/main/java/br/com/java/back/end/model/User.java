@@ -1,8 +1,8 @@
 package br.com.java.back.end.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
-import br.com.java.back.end.dto.UserDTO;
+import br.com.core.dto.UserDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,17 +22,17 @@ public class User {
 	private String key;
     private String email;
     private String telefone;
-    private Date dataCadastro;
+    private LocalDateTime dataCadastro;
 
 	public static User convert(UserDTO userDTO) {
 		User user = new User();
-		user.setNome(userDTO.nome());
-		user.setEndereco(userDTO.endereco());
-		user.setCpf(userDTO.cpf());
-		user.setKey(userDTO.key());
-		user.setEmail(userDTO.email());
-		user.setTelefone(userDTO.telefone());
-		user.setDataCadastro(userDTO.dataCadastro());
+		user.setNome(userDTO.getNome());
+		user.setEndereco(userDTO.getEndereco());
+		user.setCpf(userDTO.getCpf());
+		user.setKey(userDTO.getKey());
+		user.setEmail(userDTO.getEmail());
+		user.setTelefone(userDTO.getTelefone());
+		user.setDataCadastro(userDTO.getDataCadastro());
 		return user;
 	}
 	
