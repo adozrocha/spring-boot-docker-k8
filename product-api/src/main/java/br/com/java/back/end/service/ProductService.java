@@ -13,6 +13,8 @@ import br.com.java.back.end.dto.CategoryConvertDTO;
 import br.com.java.back.end.dto.CategoryDTO;
 import br.com.java.back.end.dto.ProductConvertDTO;
 import br.com.java.back.end.dto.ProductDTO;
+import br.com.java.back.end.exception.CategoryNotFoundException;
+import br.com.java.back.end.exception.ProductNotFoundException;
 import br.com.java.back.end.model.Category;
 import br.com.java.back.end.model.Product;
 import br.com.java.back.end.repository.CategoryRepository;
@@ -57,13 +59,13 @@ public class ProductService {
 		if (product != null) {
 			return ProductConvertDTO.convert(product);
 		}
-		throw new Exception();
+		throw new ProductNotFoundException();
 	}
 	
 	public ProductDTO save(ProductDTO productDTO) throws Exception {
 		Boolean existsCategory = categoryRepository.existsById(productDTO.category().id());
 		if (!existsCategory) {
-			throw new Exception();
+			throw new CategoryNotFoundException();
 		}				
 		Product product = productRepository.save(Product.convert(productDTO));
 		return ProductConvertDTO.convert(product);
@@ -74,7 +76,7 @@ public class ProductService {
 		if (Product.isPresent()) {
 			productRepository.delete(Product.get());
 		}
-		throw new Exception();
+		throw new ProductNotFoundException();
 	}
 
 	public Page<ProductDTO> getAllPage(Pageable page) {
