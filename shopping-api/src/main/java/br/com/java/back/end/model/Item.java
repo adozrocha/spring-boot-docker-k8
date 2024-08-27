@@ -1,9 +1,17 @@
 package br.com.java.back.end.model;
 
+import br.com.core.dto.ItemDTO;
 import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import br.com.java.back.end.dto.ItemDTO;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Embeddable
 public class Item {
 	
@@ -15,22 +23,6 @@ public class Item {
 		item.setProductIdentifier(itemDTO.getProductIdentifier());
 		item.setPrice(itemDTO.getPrice());
 		return item;
-	}
-
-	public String getProductIdentifier() {
-		return productIdentifier;
-	}
-	
-	public void setProductIdentifier(String product) {
-		this.productIdentifier = product;
-	}
-	
-	public Float getPrice() {
-		return price;
-	}
-	
-	public void setPrice(Float price) {
-		this.price = price;
 	}
 }
 

@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.java.back.end.dto.ShopReportDTO;
+import br.com.core.dto.ShopReportDTO;
 import br.com.java.back.end.model.Shop;
 
 @Repository

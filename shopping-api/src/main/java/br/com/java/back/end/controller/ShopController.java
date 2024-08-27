@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.java.back.end.dto.ShopDTO;
-import br.com.java.back.end.service.ShopService;
+import br.com.core.dto.ShopDTO;
+import br.com.java.back.end.service.ShoppingService;
 
 @RestController
 public class ShopController {
 
 	@Autowired
-	private ShopService shopService;
+	private ShoppingService shopService;
 
 	@GetMapping("/shopping")
 	public List<ShopDTO> getShops() {		
