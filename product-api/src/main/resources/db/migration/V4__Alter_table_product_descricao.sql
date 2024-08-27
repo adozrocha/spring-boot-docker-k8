@@ -1,0 +1,1 @@
+alter table products.product add descricao varchar(65535);
