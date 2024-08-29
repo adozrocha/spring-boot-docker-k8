@@ -39,9 +39,9 @@ public class ProductController {
 		return productService.getProductByCategoryId(categoryId);
 	}
 		
-	@GetMapping("/{productIdentifier}")
-	public ProductDTO findById(@PathVariable Long productIdentifier) throws Exception {
-	    return productService.findByProductIdentifier(productIdentifier);
+	@GetMapping("/{id}")
+	public ProductDTO findById(@PathVariable Long id) throws Exception {
+	    return productService.findById(id);
 	}
 	
 	@PostMapping

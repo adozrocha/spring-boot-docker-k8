@@ -46,23 +46,12 @@ public class ProductService {
 				.map(CategoryConvertDTO::convert)
 				.collect(Collectors.toList());
 	}
-
 	
 	public List<ProductDTO> getProductByCategoryId(Long categoryId) {
 		List<Product> products = productRepository.getProductByCategory(categoryId);
 		return products.stream().map(ProductConvertDTO::convert).collect(Collectors.toList());		
 	}
-	
 		
-	public ProductDTO findByProductIdentifier(Long  id) throws Exception {
-		long productId = id;
-		Product product = productRepository.findById(productId);
-		if (product != null) {
-			return ProductConvertDTO.convert(product);
-		}
-		throw new ProductNotFoundException();
-	}
-	
 	public ProductDTO save(ProductDTO productDTO) throws Exception {
 		Boolean existsCategory = categoryRepository.existsById(productDTO.getCategory().getId());
 		if (!existsCategory) {
@@ -70,6 +59,14 @@ public class ProductService {
 		}				
 		Product product = productRepository.save(Product.convert(productDTO));
 		return ProductConvertDTO.convert(product);
+	}
+	
+	public ProductDTO findById(long id) {
+		Product product = productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException());
+		if (product != null) {
+			return ProductConvertDTO.convert(product);
+		}
+		throw new ProductNotFoundException();
 	}
 	
 	public ProductDTO delete(Long id) throws Exception {
@@ -97,6 +94,8 @@ public class ProductService {
 		}
 		return ProductConvertDTO.convert(productRepository.save(product));
 	}
+
+
 
 	
 

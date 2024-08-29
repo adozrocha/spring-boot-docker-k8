@@ -6,8 +6,7 @@ import br.com.java.back.end.model.Product;
 public class ProductConvertDTO {
 	
 	public static ProductDTO convert(Product product) {
-		return new ProductDTO(product.getId(),
-							  product.getName(), 
+		return new ProductDTO(product.getName(), 
 							  product.getPrice(), 
 							  CategoryConvertDTO.convert(product.getCategory()));
 	}

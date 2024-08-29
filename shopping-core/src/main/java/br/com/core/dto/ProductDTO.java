@@ -13,9 +13,6 @@ import jakarta.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductDTO {
-
-    @NotBlank
-	private String id;
     @NotBlank
 	private String name;
     @NotNull
