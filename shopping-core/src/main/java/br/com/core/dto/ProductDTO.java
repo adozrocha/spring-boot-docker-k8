@@ -15,7 +15,7 @@ import jakarta.validation.constraints.NotNull;
 public class ProductDTO {
 
     @NotBlank
-	private String productIdentifier;
+	private String id;
     @NotBlank
 	private String name;
     @NotNull

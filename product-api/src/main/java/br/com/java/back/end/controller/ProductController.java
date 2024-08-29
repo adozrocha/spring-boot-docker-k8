@@ -40,7 +40,7 @@ public class ProductController {
 	}
 		
 	@GetMapping("/{productIdentifier}")
-	public ProductDTO findById(@PathVariable String productIdentifier) throws Exception {
+	public ProductDTO findById(@PathVariable Long productIdentifier) throws Exception {
 	    return productService.findByProductIdentifier(productIdentifier);
 	}
 	

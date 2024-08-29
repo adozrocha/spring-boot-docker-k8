@@ -53,7 +53,7 @@
 		</dependency>
 		<dependency>
 			<groupId>br.com.core</groupId>
-			<artifactId>shopping-client</artifactId>
+			<artifactId>shopping-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

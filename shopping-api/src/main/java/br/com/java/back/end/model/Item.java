@@ -19,10 +19,7 @@ public class Item {
 	private Float price;
 		
 	public static Item convert(ItemDTO itemDTO) {
-		Item item = new Item();
-		item.setProductIdentifier(itemDTO.getProductIdentifier());
-		item.setPrice(itemDTO.getPrice());
-		return item;
+		return new Item(itemDTO.getProductIdentifier(), itemDTO.getPrice());
 	}
 }
 

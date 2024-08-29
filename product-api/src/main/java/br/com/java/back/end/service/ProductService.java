@@ -54,8 +54,9 @@ public class ProductService {
 	}
 	
 		
-	public ProductDTO findByProductIdentifier(String  productIdentifier) throws Exception {
-		Product product = productRepository.findByProductIdentifier(productIdentifier);
+	public ProductDTO findByProductIdentifier(Long  id) throws Exception {
+		long productId = id;
+		Product product = productRepository.findById(productId);
 		if (product != null) {
 			return ProductConvertDTO.convert(product);
 		}
@@ -71,7 +72,7 @@ public class ProductService {
 		return ProductConvertDTO.convert(product);
 	}
 	
-	public ProductDTO delete(long id) throws Exception {
+	public ProductDTO delete(Long id) throws Exception {
 		Optional<Product> Product = productRepository.findById(id);
 		if (Product.isPresent()) {
 			productRepository.delete(Product.get());
@@ -85,7 +86,7 @@ public class ProductService {
 				.map(ProductConvertDTO::convert);
 	}
 
-	public ProductDTO editProduct(long id, ProductDTO dto) {
+	public ProductDTO editProduct(Long id, ProductDTO dto) {
 		Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found."));
 
 		if (dto.getName() != null || !dto.getName().isEmpty()) {

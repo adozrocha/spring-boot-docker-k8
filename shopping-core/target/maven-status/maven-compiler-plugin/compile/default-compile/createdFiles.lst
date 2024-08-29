@@ -1,0 +1,10 @@
+br\com\core\dto\ErrorDTO.class
+br\com\core\dto\CategoryDTO.class
+br\com\core\dto\ShopDTO.class
+br\com\core\dto\ShopReportDTO.class
+br\com\core\exception\CategoryNotFoundException.class
+br\com\core\dto\ProductDTO.class
+br\com\core\exception\UserNotFoundException.class
+br\com\core\dto\UserDTO.class
+br\com\core\dto\ItemDTO.class
+br\com\core\exception\ProductNotFoundException.class

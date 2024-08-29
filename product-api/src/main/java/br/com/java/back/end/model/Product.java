@@ -21,7 +21,7 @@ public class Product {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String productIdentifier;
+	private String id;
 	private String name;
 	private Float price;
 	
@@ -30,17 +30,16 @@ public class Product {
 	private Category category;
 
 	public static Product convert(ProductDTO productDTO) {
-		Product product = new Product(productDTO.getName(), productDTO.getPrice(), productDTO.getProductIdentifier());
+		Product product = new Product(productDTO.getName(), productDTO.getPrice(), productDTO.getId());
 		if (productDTO.getCategory() != null) {
 			product.setCategory(Category.convert(productDTO.getCategory()));
 		}
 		return product;
 	}
 
-	public Product(String name2, Float price2, String productIdentifier2) {
-		super();
+	public Product(String name2, Float price2, String id2) {
 		this.name = name2;
-		this.productIdentifier = productIdentifier2;
+		this.id = id2;
 		this.price = price2;
 	}
 	
