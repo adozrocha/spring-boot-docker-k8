@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 @Service
 public class ProductService {
 	
-	@Value("http://localhost:8081")
+	@Value("${PRODUCT_API_URL:http://localhost:8081}")
 	private String productApiURL;
 	
 	public ProductDTO getProductById(String id) {
