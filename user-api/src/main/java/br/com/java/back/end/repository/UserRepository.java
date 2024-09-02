@@ -11,6 +11,8 @@ import br.com.java.back.end.model.User;
 public interface UserRepository extends JpaRepository<User, Long>{
 	
 	User findByCpf(String cpf);
+	
+	User findByCpfAndKey(String cpf, String key);
 
 	List<User> queryByNomeLike(String name);
 
