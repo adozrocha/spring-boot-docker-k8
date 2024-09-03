@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import br.com.core.dto.ItemDTO;
 import br.com.core.dto.ProductDTO;
 import br.com.core.dto.ShopDTO;
+import br.com.core.dto.UserDTO;
 import br.com.java.back.end.converter.DTOConverter;
 import br.com.java.back.end.model.Shop;
 import br.com.java.back.end.repository.ReportRepository;
@@ -28,6 +29,9 @@ public class ShopService {
 	
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private ProductService userService;
 		
 	public List<ShopDTO> getAll() {
 		List<Shop> shops = shopRepository.findAll();
@@ -54,6 +58,8 @@ public class ShopService {
 	
 	public ShopDTO save(ShopDTO shopDTO, String key) {		
 		validateProducts(shopDTO.getItems());
+		
+//		UserDTO userDTO = userService.getUserByCpf(shopDTO.getUserIdentifier(), key);
 		
 		shopDTO.setTotal(shopDTO.getItems()
 				  .stream()
